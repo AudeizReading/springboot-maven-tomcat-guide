@@ -5,7 +5,7 @@ services:
     command: ["sh", "-c", " ./mvnw spring-boot:run"] # Lancement avec Tomcat
     working_dir: /demo
     ports:
-      - "8080:8080" # Tomcat embarqué écoute sur ce port
+      - "8755:8080" # Tomcat embarqué écoute sur ce port
     volumes:
       - .:/demo      # Monte le code source local pour le développement
       # - ~/.m2:/root/.m2 # Cache Maven pour des builds plus rapides
