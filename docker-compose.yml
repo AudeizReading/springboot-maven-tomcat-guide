@@ -1,0 +1,15 @@
+services:
+  spring-boot-app:
+    image: openjdk:23
+    container_name: spring-boot-tomcat
+    command: ["sh", "-c", " ./mvnw spring-boot:run"] # Lancement avec Tomcat
+    working_dir: /demo
+    ports:
+      - "8080:8080" # Tomcat embarqué écoute sur ce port
+    volumes:
+      - .:/demo      # Monte le code source local pour le développement
+      # - ~/.m2:/root/.m2 # Cache Maven pour des builds plus rapides
+    environment:
+      - JAVA_TOOL_OPTIONS=-Dspring.profiles.active=dev
+    stdin_open: true
+    tty: true
